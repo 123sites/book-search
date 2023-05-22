@@ -1,26 +1,13 @@
-// # 6 Resolvers, # 10 & 16 Mutations, also mini-project
+// # 26
 const { AuthenticationError } = require('apollo-server-express');
 const { User } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    users: async () => {
-      return User.find().populate('saveBooks');
-    },
-    // user: async (parent, { username }) => {
-    //   return User.findOne({ username }).populate('saveBooks');
-    // },
-    // user: async (parent, { username }) => {
-    //   const params = username ? { username } : {};
-    //   return Thought.find(params).sort({ createdAt: -1 });
-    // },
-    // thought: async (parent, { thoughtId }) => {
-    //   return Thought.findOne({ _id: thoughtId });
-    // },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('saveBooks');
+        return User.findOne({ _id: context.user._id });
       }
       throw new AuthenticationError('You need to be logged in!');
     },
@@ -68,9 +55,11 @@ const resolvers = {
       // }
     //   throw new AuthenticationError('You need to be logged in!');
     // },
-    saveBook: async (parent, { userId, content }) => {
+    
+    // fix this
+    saveBook: async (parent, { content } ,context) => {
       return User.findOneAndUpdate(
-        { _id: userId },
+        { _id: context.user._id },
         {
           $addToSet: { savedBooks: content },
         },
@@ -80,7 +69,7 @@ const resolvers = {
         }
       );
     },
-
+    // fix this
     removeBook: async (parent, { book }, context) => {
       if (context.user) {
         return User.findOneAndUpdate(
