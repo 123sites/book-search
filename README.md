@@ -15,12 +15,12 @@ so I can have a list of books to buy.
 
 ## Table of Contents 📖
 
-- ![Installation](#installation)
-- ![Usage](#usage)
-- ![Badges](#badges)
-- ![Credits](#credits)
-- ![License](#license)
-- ![Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Badges](#badges)
+- [Credits](#credits)
+- [License](#license)
+- [Features](#features)
 
 ## Installation & Requirements 🔑
 
@@ -28,13 +28,14 @@ This can be viewed through this Heroku link:
 
 ## Usage &#128161;
 
-[Repository link:](https://github.com/123sites/book-search)
+[Repository link](https://github.com/123sites/book-search)
 
 This can be used for by anyone who is looking for a specific book.
 
 ## Screenshot 🎯
 
-![alt text]()
+![alt text](./client/src/images/savedBook.png)
+![alt text](./client/src/images/searchBooks.png)
 
 ## Credits & Questions 👈
 
