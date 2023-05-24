@@ -1,6 +1,4 @@
-# book-search
-
-# ⭐ React Portfolio ⭐
+# ⭐ Book Search ⭐
 
 ![alt text](https://img.shields.io/badge/License-MIT-blue.svg)
 
@@ -11,7 +9,7 @@ find new books to purchase and later read.
 
 ## User Story 📖
 
-As a person looking who loves to read,
+As a person who loves to read,
 I want to search for new books to read,
 so I can have a list of books to buy.
 
@@ -20,19 +18,13 @@ so I can have a list of books to buy.
 - ![Installation](#installation)
 - ![Usage](#usage)
 - ![Badges](#badges)
-- ![Credits\_&_Questions](#credits_&_questions)
+- ![Credits](#credits)
 - ![License](#license)
 - ![Features](#features)
 
 ## Installation & Requirements 🔑
 
-1.  Clone this repository to your local machine.
-2.  Run `npm install` to install all dependencies.
-3.  Run `npm start` to start the application.
-4.  `Node.js` is required to run this application,
-
-## Tests 🧪
-
+This can be viewed through this Heroku link:
 
 ## Usage &#128161;
 
@@ -46,11 +38,8 @@ This can be used for by anyone who is looking for a specific book.
 
 ## Credits & Questions 👈
 
-
-
-
-
-
+For this Challenge, I utilized code from the 21-MERN Bootcamp folder and 
+I reached-out to get help from a tutor, if I needed help.
 
 ## License 📝
 
@@ -59,5 +48,17 @@ The MIT license is in the GitHub repository. Click to link to view it:
 
 ## Features ✍
 
-- ESLint
-- Express
+- MERN Stack
+
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
+![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
+![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
+![Apollo-GraphQL](https://img.shields.io/badge/-ApolloGraphQL-311C87?style=for-the-badge&logo=apollo-graphql)

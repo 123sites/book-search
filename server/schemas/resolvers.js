@@ -6,28 +6,28 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
+      // Checks if users exist.
       if (context.user) {
-        return User.findOne({ _id: context.user._id });
+        const userData = await User.findOne({ _id: context.user._id }).select(
+          "-__v -password"
+        );
+        return userData;
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("Not logged in");
     },
   },
 
+
   Mutation: {
-    // addUser: async (parent, { username, email, password }) => {
-    //   const user = await User.create({ username, email, password });
-    //   const token = signToken(user);
-    //   return { token, user };
-    // },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
-
+      // Checks if user exists with email and credentials.
       if (!user) {
         throw new AuthenticationError('No user found with this email address');
       }
 
       const correctPw = await user.isCorrectPassword(password);
-
+      // Checks password
       if (!correctPw) {
         throw new AuthenticationError('Incorrect credentials');
       }
@@ -41,42 +41,25 @@ const resolvers = {
         const token = signToken(user);
         return { token, user };
       },
-        // const user = await User.create({
-        //   thoughtText,
-        //   thoughtAuthor: context.user.username,
-        // });
-
-      //   await User.findOneAndUpdate(
-      //     { _id: context.user._id },
-      //     { $addToSet: { thoughts: thought._id } }
-      //   );
-
-      //   return thought;
-      // }
-    //   throw new AuthenticationError('You need to be logged in!');
-    // },
-    
-    // fix this
-    saveBook: async (parent, { content } ,context) => {
-      return User.findOneAndUpdate(
-        { _id: context.user._id },
-        {
-          $addToSet: { savedBooks: content },
-        },
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
-    },
-    // fix this
-    removeBook: async (parent, { book }, context) => {
+    saveBook: async (parent, { input }, context) => {
       if (context.user) {
-        return User.findOneAndUpdate(
+        const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedBooks: book } },
+          { $addToSet: { savedBooks: input } },
+          { new: true, runValidators: true }
+        );
+        return updatedUser;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    removeBook: async (parent, { bookId }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { savedBooks: { bookId: bookId } } },
           { new: true }
         );
+        return updatedUser;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
@@ -85,20 +68,4 @@ const resolvers = {
 
 module.exports = resolvers;
 
-    // removeComment: async (parent, { thoughtId, commentId }, context) => {
-    //   if (context.user) {
-    //     return Thought.findOneAndUpdate(
-    //       { _id: thoughtId },
-    //       {
-    //         $pull: {
-    //           comments: {
-    //             _id: commentId,
-    //             commentAuthor: context.user.username,
-    //           },
-    //         },
-    //       },
-    //       { new: true }
-    //     );
-    //   }
-    //   throw new AuthenticationError('You need to be logged in!');
-    // },
+   
