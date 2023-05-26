@@ -24,7 +24,7 @@ so I can have a list of books to buy.
 
 ## Installation & Requirements 🔑
 
-This can be viewed through this Heroku link:
+This can be viewed through this Heroku link: https://cfbook-search.herokuapp.com/ 
 
 ## Usage &#128161;
 
